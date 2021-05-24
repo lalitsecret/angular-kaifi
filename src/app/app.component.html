@@ -1,0 +1,56 @@
+<div class="header">
+  <div class="item">
+    <h1>Ecomerce</h1>
+  </div>
+  <div class="item">
+    <a href="">home</a>
+    <a href="">login</a>
+    <a href="">signup</a>
+    <a href="">cart</a>
+    <a href="">orders</a>
+    <a href="">checkout</a>
+    <a href="">profile</a>
+    <a href="">logout (lalit)</a>
+  </div>
+</div>
+<div class="main">
+  <div class="left">
+    <p 
+    (click)="p1(x.t)"
+    [className]="tagname===x.t?'active':''"
+    *ngFor="let x of tags">{{x.t}} <span>{{x.c}}</span></p>
+  </div>
+  <div class="right">
+    <div class="filters">
+      <button><i class="fa fa-sort"></i>id</button>
+      <button><i class="fa fa-sort"></i>old</button>
+      <button><i class="fa fa-sort"></i>new</button>
+      <button><i class="fa fa-sort"></i>rating</button>
+      <button><i class="fa fa-sort"></i>discount</button>
+      <input placeholder="search...">
+    </div>
+    <div class="products">
+      <div class="item" *ngFor="let x of products|column:tagname">
+        <img [src]="x.image" alt="" width="100">
+        <div>{{x.title}}</div>
+        <div>{{x.old|currency}}</div>
+        <div>{{x.new|currency}}</div>
+        <div> 
+          <i [style.color]="1<=x.rating?'orange':'silver'" class="fa fa-star"></i>
+          <i [style.color]="2<=x.rating?'orange':'silver'" class="fa fa-star"></i>
+          <i [style.color]="3<=x.rating?'orange':'silver'" class="fa fa-star"></i>
+          <i [style.color]="4<=x.rating?'orange':'silver'" class="fa fa-star"></i>
+          <i [style.color]="5<=x.rating?'orange':'silver'" class="fa fa-star"></i>
+        </div>
+        <div class="discount">{{x.discount}} % off</div>
+        <div class="tags">{{x.tags}}</div>
+        <div class="cart-btn">
+          <i class="fa fa-shopping-cart"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  angular demo by lalit
+</div>
